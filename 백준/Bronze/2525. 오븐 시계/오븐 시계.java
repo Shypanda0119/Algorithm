@@ -1,21 +1,16 @@
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
-public class Main{
-    public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-        int A = scanner.nextInt();
-        int B = scanner.nextInt();
-        int C = scanner.nextInt(); 
-        int D = C % 60;
-        int E = B + D;
-        C /= 60;
-        if(E > 59){
-            A++;
-            E = (B + D) % 60;
-        }
-        if(A + C > 23){
-            A -= 24;
-        }
-        System.out.printf("%d %d", A + C, E);
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int hour = Integer.parseInt(st.nextToken());
+        int min = Integer.parseInt(st.nextToken());
+        int work = Integer.parseInt(br.readLine());
+        int totalMinutes = min + work;
+        hour = (hour + totalMinutes / 60) % 24;
+        min = totalMinutes % 60;
+        System.out.println(hour + " " + min);
     }
 }

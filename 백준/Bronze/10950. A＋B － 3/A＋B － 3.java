@@ -1,14 +1,17 @@
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
 public class Main{
-    public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-        int test = scanner.nextInt();
-        int num1, num2;
-        for(int i=0; i<test; i++){
-            num1 = scanner.nextInt();
-            num2 = scanner.nextInt();
-            System.out.println(num1+num2);
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int num = Integer.parseInt(br.readLine());
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < num; i++){
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            sb.append(a+b).append("\n");
         }
+        System.out.println(sb);
     }
 }

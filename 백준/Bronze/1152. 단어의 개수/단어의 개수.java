@@ -5,12 +5,18 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String str = br.readLine();
-        if (str.isBlank()) {
+        String str = br.readLine().trim();
+        if (str.isEmpty()) {
             System.out.println("0");
             return;
         }
-        String[] strArr = str.trim().split(" ");
-        System.out.println(strArr.length);
+
+        int cnt = 1;
+        for(int i = 0; i < str.length(); i++) {
+            if(str.charAt(i) == ' ') {
+                cnt++;
+            }
+        }
+        System.out.println(cnt);
     }
 }

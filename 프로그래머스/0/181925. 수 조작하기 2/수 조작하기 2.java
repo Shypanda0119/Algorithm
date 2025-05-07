@@ -1,17 +1,16 @@
+
 class Solution {
-    public String solution(int[] num) {
-        StringBuilder sb = new StringBuilder();
-        for(int i=1; i<num.length; i++){
-            if(num[i]-num[i-1] == 1){
-                sb.append("w");
-            }else if(num[i]-num[i-1] == 10){
-                sb.append("d");
-            }else if(num[i]-num[i-1] == -1){
-                sb.append("s");
-            }else{
-                sb.append("a");
+    public String solution(int[] numLog) {
+        String answer = "";
+        for(int i=1; i<numLog.length; i++){
+            int j = numLog[i-1] - numLog[i];
+            switch(j){
+                case -1 : answer+='w'; break;
+                case 1 : answer+='s'; break;
+                case -10 : answer+='d'; break;
+                case 10 : answer+='a'; break;
             }
         }
-    return sb.toString();
+        return answer;
     }
 }
